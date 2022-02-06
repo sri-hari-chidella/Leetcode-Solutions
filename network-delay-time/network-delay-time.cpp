@@ -13,14 +13,12 @@ public:
         int ans=0;
         while (!pq.empty()){
             int dist=pq.top().first;int node=pq.top().second;
-            // cout<<dist<<endl;
             pq.pop();
             if (visited[node]==0){
                 ans=max(dist,ans);
                 visited[node]=1;
                 for (int i=0;i<graph[node].size();i++){
                     if (!visited[graph[node][i].first]){
-                        // cout<<dist+graph[node][i].second<<" "<<graph[node][i].first<<endl;
                         pq.push({dist+graph[node][i].second,graph[node][i].first});
                     }
                 }
