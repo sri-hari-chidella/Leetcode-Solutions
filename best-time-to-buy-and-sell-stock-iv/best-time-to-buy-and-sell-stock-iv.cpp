@@ -20,8 +20,8 @@ public:
             buy[i][0]=max(buy[i-1][0],-Min);
             sell[i][0]=max(sell[i-1][0],prices[i]-Min);
         }
-        for (int j=1;j<k;j++){
-            for (int i=1;i<n;i++){
+        for (int i=1;i<n;i++){
+            for (int j=1;j<k;j++){
                 buy[i][j]=max(buy[i-1][j],sell[i-1][j-1]-prices[i]);
                 sell[i][j]=max(sell[i-1][j],buy[i][j]+prices[i]);
             }
