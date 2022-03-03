@@ -21,6 +21,6 @@ public:
     
     bool isValidBST(TreeNode* root) {
         if (root==NULL)return true;
-        return solve(root->left,-2147483649,root->val) && solve(root->right,root->val,2147483648);
+        return solve(root->left,LONG_MIN,root->val) && solve(root->right,root->val,LONG_MAX);
     }
 };
