@@ -8,10 +8,8 @@ public:
         }
         int ans=0;
         while (!pq.empty() && pq.size()>costs.size()/2){
-            // cout<<pq.top().first<<endl;
             ans+=pq.top().second;pq.pop();
         }
-        // cout<<ans<<endl;
         while (!pq.empty()){ans+=pq.top().first+pq.top().second;pq.pop();}
         return ans;
     }
