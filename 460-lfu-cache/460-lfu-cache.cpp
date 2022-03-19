@@ -13,12 +13,12 @@ public:
     }
 };
 
-// LRU List
 class List {
 public:
     int size;
     Node *head;
     Node *tail;
+    
     List() {
         size = 0;
         head = new Node(0, 0);
@@ -27,7 +27,6 @@ public:
         tail->prev = head;
     }
     
-    // Adds node after head.
     void addNode(Node *curr) {
         curr->prev = head;
         curr->next = head->next;
@@ -36,7 +35,6 @@ public:
         size++;
     }
     
-    // Deletes node
     void deleteNode(Node *curr) {
         Node* temp = curr;
         curr->prev->next = curr->next;
@@ -80,8 +78,6 @@ public:
     
     int get(int key) {
         if(keyNode.find(key) == keyNode.end()) return -1;
-        
-        // Get the value of the key and update its frequency
         Node* curr = keyNode[key];
         int val = curr->value;
         updateFreqListMap(curr);
@@ -103,7 +99,6 @@ public:
                 currSize--;
             }
             
-            // New element entering here
             currSize++;
             minFreq = 1;
             List* listLRU = new List();
